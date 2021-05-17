@@ -5,6 +5,7 @@ os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen, ScreenManager
+from kivy.core.window import Window
 
 class Gerenciador(ScreenManager):
     pass
@@ -19,6 +20,15 @@ class Tarefas(Screen):
             self.ids.box.add_widget
             (Tarefa(text=tarefa))
     
+    def on_pre_enter(self):
+        Window.bind(on_keyboard = self.voltar)
+    
+    def voltar(self, window, key, *args):
+        if key == 27:
+            App.get_running_app().root.current = 'menu'
+        return True
+    def on_pre_leave(self):
+        Window.unbind(on_keyboard = self.voltar)
     def addWidget(self):
         texto = self.ids.texto.text
         self.ids.box.add_widget(Tarefa(text = texto))
