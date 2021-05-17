@@ -1,24 +1,3 @@
-<Gerenciador>:
-    Menu:
-        name: 'menu'
-    Tarefas:
-        name: 'tarefas'
-<Menu>:
-    BoxLayout:
-        orientation: 'vertical'
-        padding: 200
-        spacing: 50
-        Image:
-            source: 'foto.png'
-        Button:
-            text:'Ver Tarefas'
-            on_release: app.root.current = 'tarefas'
-        Button:
-            text: 'Assistente'
-        Button:
-            text: 'Sair'
-            on_release: app.stop()
-        
 <Tarefas>:
     BoxLayout:
         orientation: 'vertical'
@@ -26,7 +5,6 @@
             ActionView:
                 ActionPrevious:
                     title: 'Tarefas'
-                    on_release: app.root.current = 'menu'
                 ActionButton:
                     text: 'Sair'
                     on_release: app.stop()
@@ -49,13 +27,9 @@
 
 <Tarefa>:
     size_hint_y: None
-    height: 200
+    height: 50
     Label:
         id: label
         font_size: 30
-    Button:
-        text: 'x'
-        size_hint_x: None
-        width: 60
-        on_release: app.root.get_screen('tarefas').ids.box.remove_widget(root)
+        
     

@@ -4,14 +4,8 @@ os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
 
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.screenmanager import Screen, ScreenManager
+from kivy.uix.screenmanager import Screen
 from kivy.core.window import Window
-
-class Gerenciador(ScreenManager):
-    pass
-
-class Menu(Screen):
-    pass
 
 class Tarefas(Screen):
     def __init__(self, tarefas = [], **kwargs):
@@ -41,6 +35,6 @@ class Tarefa(BoxLayout):
 
 class Teste(App):
     def build(self):
-        return Gerenciador()
+        return Tarefas()
 
 Teste().run()
