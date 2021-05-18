@@ -15,7 +15,7 @@ class Menu(Screen):
 
 class Tarefas(Screen):
     def __init__(self, tarefas = [], **kwargs):
-        super().__init__(**kwargs)
+        super(Tarefas, self).__init__(**kwargs)
         for tarefa in tarefas:
             self.ids.box.add_widget
             (Tarefa(text=tarefa))
@@ -36,7 +36,7 @@ class Tarefas(Screen):
 
 class Tarefa(BoxLayout):
     def __init__(self, text =' ', **kwargs):
-        super().__init__(**kwargs)
+        super(Tarefa, self).__init__(**kwargs)
         self.ids.label.text = text
 
 class Teste(App):
